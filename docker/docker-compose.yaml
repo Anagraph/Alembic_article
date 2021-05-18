@@ -1,0 +1,19 @@
+version: "3.3"
+volumes:
+  tutolocation:
+services:
+  dbtuto:
+    image: crunchydata/crunchy-postgres-gis:centos7-9.6.16-4.2.1
+    ports:
+      - "5598:5432"
+    environment:
+      PG_DATABASE: geomdbtuto
+      PG_PRIMARY_PORT: 5432
+      PG_MODE: primary
+      PG_USER: user
+      PG_PASSWORD: bidone
+      PG_PRIMARY_USER: primaryuser
+      PG_PRIMARY_PASSWORD: bidone
+      PG_ROOT_PASSWORD: bidone
+    volumes:
+      - tutolocation:/pgdata
