@@ -28,7 +28,7 @@ def upgrade():
         begin
             return query
                 with envelope as (
-                    select st_envelope(geom) geom from "Quartiers_sociologiques_2014"
+                    select st_envelope(geom) geom from "quartiers_sociologiques"
                 ), h3_id as (
                     select h3_polyfill(geom, resolution) id from envelope
                 ), h3 as (
