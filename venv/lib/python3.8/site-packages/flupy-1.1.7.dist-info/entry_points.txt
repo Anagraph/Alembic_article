@@ -1,0 +1,4 @@
+[console_scripts]
+flu = flupy.cli.cli:main
+flu_precommit = flupy.cli.cli:precommit
+

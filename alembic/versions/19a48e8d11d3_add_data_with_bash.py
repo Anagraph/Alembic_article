@@ -12,14 +12,24 @@ from alembic import op
 
 # revision identifiers, used by Alembic.
 revision = '19a48e8d11d3'
-down_revision = '56bbd8fd337d'
+down_revision = None
 branch_labels = None
 depends_on = None
 
 
 def upgrade():
-    os.system('etl/data_load.sh')
+
+    op.execute(
+        'create extension IF NOT EXISTS postgis'
+    )
+
+    op.execute(
+        'create extension IF NOT EXISTS pgh3'
+    )
+
+    os.system('/etl/data_load.sh')
 
 
 def downgrade():
-    op.drop_table('testdata')
+    pass
+    # op.drop_table('testdata')

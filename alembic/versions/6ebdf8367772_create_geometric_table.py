@@ -11,18 +11,11 @@ from geoalchemy2.types import Geometry
 
 # revision identifiers, used by Alembic.
 revision = '6ebdf8367772'
-down_revision = None
+down_revision = '19a48e8d11d3'
 branch_labels = None
 depends_on = None
 
 def upgrade():
-    # op.execute(
-    #     'create extension postgis'
-    # )
-
-    op.execute(
-        'create extension IF NOT EXISTS pgh3'
-    )
 
     op.create_table(
         'geomtable',
