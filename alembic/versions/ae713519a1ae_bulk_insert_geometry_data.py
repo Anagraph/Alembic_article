@@ -19,6 +19,7 @@ depends_on = None
 
 
 def upgrade():
+    op.execute('CREATE SCHEMA IF NOT EXISTS tiger')
     # Create an ad-hoc table to use for the insert statement.
     geomtable = table('geomtable',
         column('id', Integer),

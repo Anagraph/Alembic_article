@@ -16,6 +16,14 @@ branch_labels = None
 depends_on = None
 
 def upgrade():
+    # op.execute(
+    #     'create extension postgis'
+    # )
+
+    op.execute(
+        'create extension IF NOT EXISTS pgh3'
+    )
+
     op.create_table(
         'geomtable',
         sa.Column('id', sa.Integer, primary_key=True),
